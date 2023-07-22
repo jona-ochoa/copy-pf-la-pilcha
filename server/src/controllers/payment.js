@@ -35,7 +35,7 @@ const createOrder = async (req, res) => {
     const result = await mercadopago.preferences.create({
       items: orderItems,
       back_urls: {
-        pending: "http://localhost:3002/api/v1/pay/pending",
+        pending: "http://localhost:3001/api/v1/pay/pending",
         success: "http://localhost:3000/success",
         failure: "http://localhost:3000/failure",
       },
