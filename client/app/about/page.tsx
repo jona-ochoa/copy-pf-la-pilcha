@@ -1,7 +1,6 @@
-import React from "react";
-import AboutCard from "../../components/AboutCard";
+import AboutCard from '../../components/AboutCard';
 
-const About: React.FC = () => {
+const About = () => {
 
   return (
     <div>

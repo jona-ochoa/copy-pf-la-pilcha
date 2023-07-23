@@ -1,3 +1,16 @@
 {
-  "extends": ["next/babel","next/core-web-vitals"]
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@next/next/recommended"
+  ],
+  "plugins": ["react", "react-hooks", "@next/next"],
+  "rules": {
+    "quotes": ["error", "single", { "avoidEscape": true }]
+  },
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module"
+  }
 }

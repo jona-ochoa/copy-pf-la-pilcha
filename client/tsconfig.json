@@ -5,7 +5,7 @@
       "next/router": ["next/dist/client/router"],
       "next/link": ["next/dist/client/link"]
     },
-    "target": "es5",
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",

@@ -1,6 +1,6 @@
-import Link from "next/link";
-import Image from "next/image";
-import logoanimado from "../../public/LaPilcha_animada.gif";
+import Link from 'next/link';
+import Image from 'next/image';
+import logoanimado from '../../public/LaPilcha_animada.gif';
 
 const Failure = () => {
   return (

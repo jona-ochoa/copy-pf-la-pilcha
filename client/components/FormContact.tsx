@@ -9,9 +9,9 @@ import {
   FormikHelpers
 } from 'formik';
 import * as Yup from 'yup';
-import { useAppDispatch } from "GlobalRedux/store";
-import { useCreateMailerMutation, Mailer } from "GlobalRedux/api/nodemailerApi";
-import { addMailer } from "GlobalRedux/features/nodemailerSlice";
+import { useAppDispatch } from 'GlobalRedux/store';
+import { useCreateMailerMutation, Mailer } from 'GlobalRedux/api/nodemailerApi';
+import { addMailer } from 'GlobalRedux/features/nodemailerSlice';
 import toast from 'react-hot-toast';
 
 interface IFormInputs {
@@ -132,4 +132,3 @@ const FormContact: React.FC = () => {
 }
 
 export default FormContact;
-

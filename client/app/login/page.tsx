@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 import Image from 'next/image';
-import Login from "components/Login"; 
-import logoBlack from "../../public/logoBlack.png";
+import Login from 'components/Login'; 
+import logoBlack from '../../public/logoBlack.png';
 
 const LoginPage = () => {
   return (

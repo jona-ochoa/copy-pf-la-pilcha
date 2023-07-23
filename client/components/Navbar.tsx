@@ -1,10 +1,8 @@
 'use client'
-import React from 'react';
 import SearchBar from './SearchBar';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSession, signOut } from 'next-auth/react';
-import { useSelector } from 'react-redux';
 import { MdOutlineAdminPanelSettings } from 'react-icons/md';
 
 const Navbar: React.FC = () => {

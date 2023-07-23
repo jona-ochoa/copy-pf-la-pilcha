@@ -1,11 +1,11 @@
-import React from "react";
-import ProductForm from "../../components/ProductForm";
+import React from 'react';
+import ProductForm from '../../components/ProductForm';
 
 const FormProductPage = () => {
     return (
         <div>
             <div>
-            <ProductForm />
+                <ProductForm />
             </div>
         </div>
     )
