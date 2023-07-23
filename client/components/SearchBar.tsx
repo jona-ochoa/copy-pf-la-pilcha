@@ -6,7 +6,7 @@ const SearchBar: React.FC = () => {
   const dispatch = useAppDispatch();
   const [searchQuery, setSearchQueryValue] = useState('');
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchQueryValue(event.target.value);
   };
 
@@ -14,7 +14,7 @@ const SearchBar: React.FC = () => {
     dispatch(setSearchQuery(searchQuery));
   };
 
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       handleSearch();
     }

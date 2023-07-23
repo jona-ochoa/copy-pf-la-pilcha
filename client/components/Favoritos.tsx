@@ -4,11 +4,11 @@ import { RootState } from '../GlobalRedux/store';
 import { removeFromFavorites, addToFavorites } from '../GlobalRedux/features/favoritoSlice';
 import { Product } from '../GlobalRedux/api/productsApi';
 import { useSession } from 'next-auth/react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useLocalStorage } from '../hooks/useLocalstorage';
 import ProductCard from './ProductCard';
 
-const TarjetasFavoritas = () => {
+const TarjetasFavoritas: React.FC = () => {
   const [favoriteItems, setFavoriteItems] = useLocalStorage<Product[]>("favoriteItems", []);
   const { data: session } = useSession();
   const dispatch = useDispatch();

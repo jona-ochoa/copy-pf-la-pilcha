@@ -4,10 +4,10 @@ import googleLogo from '../public/google-logo.png';
 import githubLogo from '../public/github-logo.png';
 import { signIn } from 'next-auth/react';
 import { useSearchParams, useRouter } from "next/navigation";
-import { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 
 
-const Login = () => {
+const Login: React.FC = () => {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [formValues, setFormValues] = useState({
@@ -19,7 +19,7 @@ const Login = () => {
     const searchParams = useSearchParams();
     const callbackUrl = searchParams.get("callbackUrl") || "/";
   
-    const onSubmit = async (e: React.FormEvent) => {
+    const onSubmit = async (e: FormEvent) => {
       e.preventDefault();
       try {
         setLoading(true);

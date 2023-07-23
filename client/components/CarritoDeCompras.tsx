@@ -30,7 +30,7 @@ interface IMailerOrder {
   }> | string;
 }
 
-const CarritoDeCompras = () => {
+const CarritoDeCompras: React.FC = () => {
   const { data: session } = useSession();
   const [cartItems, setCartItems] = useLocalStorage<Product[]>('cartItems', []);
   const dispatch = useDispatch();

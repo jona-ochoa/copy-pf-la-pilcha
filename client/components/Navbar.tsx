@@ -1,4 +1,5 @@
 'use client'
+import React from 'react';
 import SearchBar from './SearchBar';
 import Image from 'next/image';
 import Link from 'next/link';
