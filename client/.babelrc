@@ -1,6 +1,0 @@
-{
-  "presets": [
-    ["next/babel", { "preset-react": { "runtime": "automatic" }, "modules": false }],
-    "@babel/preset-typescript"
-  ]
-}
