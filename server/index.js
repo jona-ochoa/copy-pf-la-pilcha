@@ -16,7 +16,7 @@ app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
 
 //routes
-app.use("/api/v1", routes);
+app.use("/", routes);
 
 const server = http.createServer(app)
 //mongodb connection
