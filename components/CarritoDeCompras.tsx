@@ -48,7 +48,7 @@ const CarritoDeCompras = () => {
   const searchBuyHistory = useCallback(
     async (email: string) => {
       try {
-        const response = await axios.get("http://localhost:3002/users");
+        const response = await axios.get("https://copy-pf-la-pilcha-api.vercel.app/users");
         const users = response.data;
         const user = users.find((user: any) => user.email === email);
         if (user) {
