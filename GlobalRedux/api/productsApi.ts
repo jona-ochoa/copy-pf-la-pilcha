@@ -9,12 +9,13 @@ export type Product = {
   category: string;
   rating: any;
   isDeactivated: boolean;
+  count: number;
 };
 
 export const productsApi = createApi({
   reducerPath: "productsApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://copy-pf-la-pilcha-api.vercel.app",
+    baseUrl: "http://localhost:3002",
   }),
   endpoints: (builder) => ({
     getProducts: builder.query<Product[], null>({

@@ -10,7 +10,7 @@ export type Mailer = {
 export const nodemailerApi = createApi({
   reducerPath: "nodemailerApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://copy-pf-la-pilcha-api.vercel.app",
+    baseUrl: "http://localhost:3002",
   }),
   endpoints: (builder) => ({
     createMailer: builder.mutation<Mailer, Partial<Mailer>>({

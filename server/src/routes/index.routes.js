@@ -11,7 +11,7 @@ const nodemailerRoutes = require("./nodemailer.routes");
 
 //routes
 routes.use("/", userRoutes);
-routes.use("/products", productRouter); 
+routes.use("/products", productRouter);
 routes.use("/orders", buyOrderRouter);
 routes.use("/admins", adminRouter);
 routes.use("/pay", paymenRoutes);

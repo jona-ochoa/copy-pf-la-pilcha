@@ -19,10 +19,10 @@ const userSchema = mongoose.Schema({
   },
   image: {
     type: String,
-    required: true,
+    required: false,
   },
   buyhistory: {
-    type: Array,
+    type: [Object],
     required: false,
   },
   isAdmin: {  // Nueva propiedad para indicar si el usuario es admin

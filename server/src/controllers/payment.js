@@ -35,7 +35,7 @@ const createOrder = async (req, res) => {
     const result = await mercadopago.preferences.create({
       items: orderItems,
       back_urls: {
-        pending: "http://localhost:3001/pay/pending",
+        pending: "http://localhost:3002/pay/pending",
         success: "http://localhost:3000/success",
         failure: "http://localhost:3000/failure",
       },
@@ -65,6 +65,7 @@ const reciveWebhook = async (req, res) => {
         date: body.date_approved,
         amount: body.transaction_amount,
         paymentType: body.payment_type_id,
+        description: body.description,
       };
 
       const usuarioId = body.additional_info.payer.last_name;
