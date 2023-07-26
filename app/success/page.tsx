@@ -35,7 +35,7 @@ const ThankYouPage = () => {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3002/users");
+        const response = await axios.get("https://copy-pf-la-pilcha-api.vercel.app/api/v1/users");
         const users = response.data;
         const user = users.find((user: any) => user.email === session.user?.email);
         if (user) {
@@ -86,7 +86,7 @@ const ThankYouPage = () => {
       };
       console.log(buyOrder);
 
-      const newBuyOrder = await axios.post('http://localhost:3002/orders', buyOrder);
+      const newBuyOrder = await axios.post('https://copy-pf-la-pilcha-api.vercel.app/api/v1/orders', buyOrder);
 
       if ('data' in newBuyOrder) {
         const { data } = newBuyOrder;

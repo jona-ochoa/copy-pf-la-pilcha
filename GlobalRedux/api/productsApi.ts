@@ -15,7 +15,7 @@ export type Product = {
 export const productsApi = createApi({
   reducerPath: "productsApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:3002",
+    baseUrl: "https://copy-pf-la-pilcha-api.vercel.app/api/v1",
   }),
   endpoints: (builder) => ({
     getProducts: builder.query<Product[], null>({

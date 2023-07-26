@@ -35,9 +35,9 @@ const createOrder = async (req, res) => {
     const result = await mercadopago.preferences.create({
       items: orderItems,
       back_urls: {
-        pending: "http://localhost:3002/pay/pending",
-        success: "http://localhost:3000/success",
-        failure: "http://localhost:3000/failure",
+        pending: "https://copy-pf-la-pilcha-api.vercel.app/api/v1/pay/pending",
+        success: "https://copy-pf-la-pilcha.vercel.app/success",
+        failure: "https://copy-pf-la-pilcha.vercel.app/failure",
       },
       notification_url: "https://44c8-179-0-233-162.ngrok-free.app/pay/webhook",
       payment_methods: {

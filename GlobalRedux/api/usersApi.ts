@@ -14,7 +14,7 @@ export type User = {
 export const usersApi = createApi({
     reducerPath: 'usersApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:3002',
+        baseUrl: 'https://copy-pf-la-pilcha-api.vercel.app/api/v1',
     }),
     endpoints: (builder) => ({
         getUsers: builder.query<User[], void>({
