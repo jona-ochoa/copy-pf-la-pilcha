@@ -15,7 +15,7 @@ const OrderDetails = ({ orderId }: { orderId: string }) => {
   useEffect(() => {
     const fetchOrderDetails = async () => {
       try {
-        const response = await axios.get<Order>(`http://localhost:3002/orders/${orderId}`);
+        const response = await axios.get<Order>(`https://copy-pf-la-pilcha-api.vercel.app/api/v1/orders/${orderId}`);
         setOrderDetails(response.data);
       } catch (error) {
         console.error("Error fetching order details: ", error);

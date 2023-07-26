@@ -39,7 +39,7 @@ const AdminDashboard: React.FC = () => {
 
   const getProductsData = async () => {
     try {
-      const response = await axios.get('http://localhost:3002/products');
+      const response = await axios.get('https://copy-pf-la-pilcha-api.vercel.app/api/v1/products');
       const products = response.data;
       dispatch(setProducts(products));
       setProductsData(products);
@@ -50,7 +50,7 @@ const AdminDashboard: React.FC = () => {
 
   const handleToggleBanUser = async (userId: string, isBanned: boolean) => {
     try {
-      const response = await axios.put(`http://localhost:3002/user/${userId}`, { isBanned });
+      const response = await axios.put(`https://copy-pf-la-pilcha-api.vercel.app/api/v1/user/${userId}`, { isBanned });
       console.log(response.data.message);
 
       // Actualizar el estado local con el cambio realizado
@@ -64,7 +64,7 @@ const AdminDashboard: React.FC = () => {
 
   const handleToggleDeactivateProduct = async (productId: string, isDeactivated: boolean) => {
     try {
-      const response = await axios.put(`http://localhost:3002/products/${productId}`, { isDeactivated });
+      const response = await axios.put(`https://copy-pf-la-pilcha-api.vercel.app/api/v1/products/${productId}`, { isDeactivated });
       console.log(response.data.message);
 
       // Actualizar el estado local con el cambio realizado
@@ -78,7 +78,7 @@ const AdminDashboard: React.FC = () => {
 
   const handleToggleAdmin = async (userId: string, isAdmin: boolean) => {
     try {
-      const response = await axios.put(`http://localhost:3002/user/${userId}`, { isAdmin });
+      const response = await axios.put(`https://copy-pf-la-pilcha-api.vercel.app/api/v1/user/${userId}`, { isAdmin });
       console.log(response.data.message);
 
       // Actualizar el estado local con el cambio realizado
