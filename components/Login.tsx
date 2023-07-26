@@ -26,7 +26,7 @@ const Login = () => {
         setFormValues({ email: "", password: "" });
   
         const res = await signIn("credentials", {
-          redirect: false,
+          redirect: true,
           email: formValues.email,
           password: formValues.password,
           callbackUrl,
