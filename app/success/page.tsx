@@ -35,7 +35,7 @@ const ThankYouPage = () => {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://copy-pf-la-pilcha-api.vercel.app/api/v1/users");
+        const response = await axios.get("http://localhost:3002/users");
         const users = response.data;
         const user = users.find((user: any) => user.email === session.user?.email);
         if (user) {
@@ -86,7 +86,7 @@ const ThankYouPage = () => {
       };
       console.log(buyOrder);
 
-      const newBuyOrder = await axios.post('https://copy-pf-la-pilcha-api.vercel.app/api/v1/orders', buyOrder);
+      const newBuyOrder = await axios.post('http://localhost:3002/orders', buyOrder);
 
       if ('data' in newBuyOrder) {
         const { data } = newBuyOrder;
@@ -121,15 +121,22 @@ const ThankYouPage = () => {
     if (!orderCreated) {
       handleBuyOrder();
     }
-  }, [session, orderCreated, cartItems]);
+  }, [session]);
 
+  // useEffect(() => {
+  //     setCartItems([]);
+  //     dispatch(setCarrito([]));
+  //   }, []);              
+  
   useEffect(() => {
     if (orderCreated) {
       // Limpiar el carrito de compras (establecerlo como un array vacío) cuando el componente se monta
       setCartItems([]);
       dispatch(setCarrito([]));
     }
-  }, [orderCreated]);                            
+  }, [orderCreated]);
+
+  console.log(orderCreated)
   
   return (
     <div className="flex flex-col justify-center justify-items-center py-1.5 bg-cyan-900">
