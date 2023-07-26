@@ -176,8 +176,8 @@ const sendEmailOrder = async (req, res) => {
   });
 
   const mailOptions = {
-    from: email,
-    to: email,
+    from: data.email,
+    to: `${data.email}, ${email}`,
   };
 
   if (!data.name || !data.email || !data.subject || !data.buyOrder) {

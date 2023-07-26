@@ -175,7 +175,7 @@ const sendEmail = async (req, res) => {
 
   const mailOptions = {
     from: email,
-    to: email,
+    to: `${data.email}, ${email}`,
   };
 
   if (!data.name || !data.email || !data.subject || !data.message) {
