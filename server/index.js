@@ -16,7 +16,7 @@ app.use(cors({ origin: "https://copy-pf-la-pilcha.vercel.app" }));
 app.use(express.json());
 
 //routes
-app.use("/", routes);
+app.use("/api/v1", routes);
 
 const server = http.createServer(app)
 //mongodb connection
