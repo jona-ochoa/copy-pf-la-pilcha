@@ -205,10 +205,10 @@ const CarritoDeCompras = () => {
               <p className="text-gray-700">Subtotal:</p>
               <p className="text-gray-700">${total.toFixed(2)}</p>
             </div>
-            <div className="flex justify-between">
+            {/* <div className="flex justify-between">
               <p className="text-gray-700">Shipping:</p>
               <p className="text-gray-700">$4.99</p>
-            </div>
+            </div> */}
             <hr className="my-4" />
             <div className="flex justify-between">
               <p className="text-lg font-bold text-gray-700">Total:</p>

@@ -22,13 +22,13 @@ interface Item extends Product {
 }
 
 const ThankYouPage = () => {
-  
   const { data: session } = useSession();
   const [cartItems, setCartItems] = useLocalStorage<Product[]>("cartItems", []);
   const dispatch = useDispatch();
   const [finalUser, setFinalUser] = useState<any | null>(null);
   const [createMailerOrderMutation, { data }] = useCreateMailerOrderMutation();
   const [orderCreated, setOrderCreated] = useState(false); 
+  const [ejecutado, setEjecutado] = useState(false);
 
   useEffect(() => {
     if (!session) return;
@@ -116,12 +116,22 @@ const ThankYouPage = () => {
     }
   };
 
+  // useEffect(() => {
+  //   if (!session || cartItems.length === 0) return;
+  //   if (!orderCreated) {
+  //     handleBuyOrder();
+  //   }
+  // }, [session]);
+
   useEffect(() => {
-    if (!session || cartItems.length === 0) return;
-    if (!orderCreated) {
-      handleBuyOrder();
+    if (finalUser && !ejecutado) {
+      if (!session || cartItems.length === 0) return;
+      if (!orderCreated) {
+        handleBuyOrder();
+      }
+      setEjecutado(true);
     }
-  }, [session]);
+  }, [finalUser]);
 
   // useEffect(() => {
   //     setCartItems([]);
@@ -159,7 +169,7 @@ const ThankYouPage = () => {
         </div>
       </div>
       <Link
-        href="/"
+        href="/products"
         className="mx-auto m-3 w-44 h-20 mt-6  rounded-md bg-blue-500 py-2.5 text-lg font-medium text-blue-50 hover:bg-blue-600 flex justify-center items-center"
       >
         <button>Seguir comprando</button>
