@@ -12,7 +12,7 @@ const port = process.env.PORT || 3002;
 
 //middleware
 app.use(morgan("dev"));
-app.use(cors({ origin: "https://copy-pf-la-pilcha.vercel.app" }));
+app.use(cors({ origin: "https://pf-la-pilcha.vercel.app" }));
 // app.use(cors({ origin: "http://localhost:3000" })); para utilizar en desarrollo
 app.use(express.json());
 

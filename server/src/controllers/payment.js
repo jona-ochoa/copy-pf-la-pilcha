@@ -36,8 +36,8 @@ const createOrder = async (req, res) => {
       items: orderItems,
       back_urls: {
         pending: "https://copy-pf-la-pilcha-api.vercel.app/api/v1/pay/pending",
-        success: "https://copy-pf-la-pilcha.vercel.app/success",
-        failure: "https://copy-pf-la-pilcha.vercel.app/failure",
+        success: "https://pf-la-pilcha.vercel.app/success",
+        failure: "https://pf-la-pilcha.vercel.app/failure",
       },
       notification_url: "https://44c8-179-0-233-162.ngrok-free.app/pay/webhook",
       payment_methods: {
