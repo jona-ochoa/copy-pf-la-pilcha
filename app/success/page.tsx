@@ -97,8 +97,8 @@ const ThankYouPage = () => {
       const newMailerOrder: Partial<MailerOrder> = {
         name: `${buyerInfo.name}`,
         email: `${buyerInfo.email}`,
-        subject: `Order de compra del cliente: ${buyerInfo.name}`,
-        buyOrder: `status: ${buyOrder.status}, total: ${buyOrder.total}, items: ${buyOrder.items}`,
+        subject: `Orden de compra del cliente: ${buyerInfo.name}`,
+        buyOrder: `${buyerInfo.buyOrder}`,
       };
       
       const result = await createMailerOrderMutation(newMailerOrder);
