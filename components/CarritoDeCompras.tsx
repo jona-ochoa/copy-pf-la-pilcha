@@ -16,14 +16,7 @@ interface IMailerOrder {
   name: string;
   email: string;
   subject: string;
-  buyOrder:
-    | Array<{
-        id: string;
-        title: string;
-        unit_price: string;
-        quantity: number;
-      }>
-    | string;
+  buyOrder: string;
 }
 
 const CarritoDeCompras = () => {
