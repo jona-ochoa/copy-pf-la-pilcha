@@ -4,7 +4,12 @@ interface MailerOrder {
     name: string,
     email: string,
     subject: string,
-    buyOrder: string;
+    buyOrder: string | Array<{
+        id: string;
+        title: string;
+        unit_price: string;
+        quantity: number;
+      }>;
 }
 
 interface MailerOrderState {

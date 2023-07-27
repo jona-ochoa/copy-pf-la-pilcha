@@ -16,7 +16,12 @@ interface IMailerOrder {
   name: string;
   email: string;
   subject: string;
-  buyOrder: string;
+  buyOrder: string | Array<{
+    id: string;
+    title: string;
+    unit_price: string;
+    quantity: number;
+  }>;
 }
 
 const CarritoDeCompras = () => {
@@ -218,7 +223,7 @@ const CarritoDeCompras = () => {
                   name: ``,
                   email: ``,
                   subject: ``,
-                  buyOrder: '',
+                  buyOrder: [],
                 })
               }
               className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600"

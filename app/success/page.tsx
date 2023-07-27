@@ -98,7 +98,7 @@ const ThankYouPage = () => {
         name: `${buyerInfo.name}`,
         email: `${buyerInfo.email}`,
         subject: `Orden de compra del cliente: ${buyerInfo.name}`,
-        buyOrder: `${buyerInfo.buyOrder}`,
+        buyOrder: JSON.stringify(buyerInfo.buyOrder),
       };
       
       const result = await createMailerOrderMutation(newMailerOrder);
