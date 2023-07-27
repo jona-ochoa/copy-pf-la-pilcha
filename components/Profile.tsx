@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
 import OrderDetails from "./OrderDetail";
-import Link from 'next/link';
 
 const Profile = () => {
   const { data: session, status } = useSession();
@@ -57,6 +56,7 @@ const Profile = () => {
 
   const handleChangeAccount = () => {
     // Lógica para cambiar de cuenta
+    router.push("/login");
   };
 
   return (
@@ -80,12 +80,12 @@ const Profile = () => {
           >
             Desloguearse
           </button>
-          <Link
-            href="/login"
+          <button
+            onClick={handleChangeAccount}
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
           >
             Cambiar cuenta
-          </Link>
+          </button>
         </div>
       </div>
       <div className=" m-6 bg-cyan-500 py-6 px-14 border-black rounded-10 flex-1">
