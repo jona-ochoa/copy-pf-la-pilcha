@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react';
-import ProductsPage from './products/page';
+import Landing from 'components/Landing';
 
 import './globals.css';
 
@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
 
     <div>  
-      <ProductsPage />
+      <Landing />
     </div>
 
   
