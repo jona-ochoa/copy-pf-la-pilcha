@@ -123,14 +123,11 @@ const CarritoDeCompras = () => {
         })),
       };
 
-      console.log(buyerInfo)
-
       // Hacer la solicitud al backend para crear la orden de compra en Mercado Pago
       const response = await axios.post(
         "https://copy-pf-la-pilcha-api.vercel.app/api/v1/pay/create-order",
         buyerInfo
       );
-      console.log("res del back: ", response.data);
 
       // Redirigir al usuario a la página de pago de Mercado Pago
       window.location.href = response.data.init_point;
@@ -225,7 +222,7 @@ const CarritoDeCompras = () => {
                   name: ``,
                   email: ``,
                   subject: ``,
-                  buyOrder: [],
+                  buyOrder: ``,
                 })
               }
               className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600"

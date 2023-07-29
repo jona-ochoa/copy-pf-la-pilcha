@@ -23,15 +23,15 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       credentials: {
         email: { label: "email", type: "email" },
-        password: { label: "password", type: "password"}
+        password: { label: "password", type: "password" }
       },
-      authorize: async (credentials: Record<"email" | "password", string> | undefined ) => {
-        if(credentials) {
+      authorize: async (credentials: Record<"email" | "password", string> | undefined) => {
+        if (credentials) {
           const { email, password } = credentials;
 
-        //verificar las credenciales en la bdd
+          //verificar las credenciales en la bdd
           const user = await verifyCredentials(email, password)
-          if(user) {
+          if (user) {
             return Promise.resolve(user)
           } else {
             return Promise.resolve(null)
@@ -44,15 +44,12 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async signIn({ user, account, profile }) {
-      console.log("sign in function");
       const email = user?.email || (profile?.email && profile.email);
-      console.log("user email", email);
       if (!email) {
         return false;
       }
       const existingUser = await verifyUserByEmail(email);
       if (!existingUser && account) {
-        console.log("account provider: ", account.provider);
         if (account.provider === 'github' || account.provider === 'google') {
           await createUserIfNotExists(profile);
         } else {
@@ -69,20 +66,18 @@ const verifyCredentials = async (email: string, password: string) => {
   try {
     //consultar la bdd para buscar el user por nombre de user
     const response = await axios.get("https://copy-pf-la-pilcha-api.vercel.app/api/v1/users");
-    const users = response.data
-    console.log('Users from db: ', users)
+    const users = response.data;
     const user = users.find(
       (user: any) => user.email === email && user.password === password
     );
-    console.log("User found: ", user);
-    if(user) {
+    if (user) {
       return user;
     } else {
       return null
     }
   } catch (error) {
-  console.error("Error al verificar las credenciales: ", error)
-  return null;    
+    console.error("Error al verificar las credenciales: ", error)
+    return null;
   }
 }
 
@@ -101,7 +96,6 @@ const verifyUserByEmail = async (email: string) => {
       console.log("No se encontró ningún usuario con el correo electrónico proporcionado.");
       return null;
     }
-    console.log("Usuario encontrado por correo electrónico: ", user);
     return user;
   } catch (error) {
     console.error("Error al verificar el usuario por email: ", error);
@@ -120,18 +114,16 @@ const createUser = async (user) => {
       isBanned: false,
     };
     const response = await axios.post("https://copy-pf-la-pilcha-api.vercel.app/api/v1/user", newUser);
-    const createdUser = response.data; 
-    console.log("new user created: ", createdUser);
-    return createdUser; 
+    const createdUser = response.data;
+    return createdUser;
   } catch (error) {
     console.error("error al crearlo: ", error);
-    throw error; 
-};
+    throw error;
+  };
 }
 
 //crear un nuevo usuario en la db si el user autenticado con google o github no existe
 const createUserIfNotExists = async (profile) => {
-  console.log("profile data: ", profile);
   if (!profile || !profile.email) {
     console.error("no se pudo obtener el email del perfil");
     return;
@@ -149,7 +141,7 @@ const createUserIfNotExists = async (profile) => {
         isAdmin: false,
         isBanned: false,
       });
-      console.log("new user created!!!", newUser);
+
     } catch (error) {
       console.error("error al crearlo:", error);
     }

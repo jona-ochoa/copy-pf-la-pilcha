@@ -43,7 +43,7 @@ const ProductForm: React.FC = () => {
   });
 
   const handleSubmit = async (values: ProductForm, { resetForm }: FormikHelpers<ProductForm>) => {
-    console.log('submitting form:', values);
+
     const { _id, title, price, description, category, image } = values;
 
     if (image instanceof File) {
@@ -101,9 +101,7 @@ const ProductForm: React.FC = () => {
     postProduct(newProduct)
       .unwrap()
       .then((response) => {
-        console.log('Product created:', response);
         dispatch(setProducts([response]));
-        console.log('Updated products:', response);
 
         // Mostrar mensaje de éxito utilizando el componente Toast
         toast.success('¡Producto cargado correctamente!');
@@ -142,98 +140,98 @@ const ProductForm: React.FC = () => {
                 </div>
 
                 <Form className='max-w-xl mx-auto' encType='multipart/form-data'>
-                <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2'>
-                  <div>
-                    <label className='block text-sm font-semibold leading-6' htmlFor='title'>
-                      Nombre del Producto:
-                    </label>
-                    <div className='mt-2.5'>
-                      <Field
-                        className='block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder: focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6'
-                        type='text'
-                        id='title'
-                        name='title'
-                      />
-                      <ErrorMessage name='title' component='div' className='text-red-600' />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className='block text-sm font-semibold leading-6' htmlFor='price'>
-                      Precio:
-                    </label>
-                    <div className='mt-2.5'>
-                      <Field
-                        type='number'
-                        id='price'
-                        name='price'
-                        placeholder='$'
-                        className='block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder: focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                    <ErrorMessage name='price' component='div' className='text-red-600' />
-                  </div>
-
-                  <div className='sm:col-span-2'>
-                    <label className='block text-sm font-semibold leading-6' htmlFor='description'>
-                      Descripción:{' '}
-                    </label>
-                    <div className='mt-2.5'>
-                      <Field
-                        type='text'
-                        id='description'
-                        name='description'
-                        className='block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder: focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                    <ErrorMessage name='description' component='div' className='text-red-600' />
-                  </div>
-
-                  <div className='sm-col-span-2'>
-                    <label className='block text-sm font-semibold leading-6' htmlFor='category'>
-                      Categoría:{' '}
-                    </label>
-                    <div className='mt-2.5'>
-                      <Field
-                        as='select'
-                        id='category'
-                        name='category'
-                        className='block w-full rounded-md border-0 px-3.5 py-2  shadow-sm ring-1 ring-inset ring-gray-300 placeholder: focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6'
-                      >
-                        <option value=''></option>
-                        <option value="women's clothing">women's clothing</option>
-                        <option value="men's clothing">men's clothing</option>
-                      </Field>
-                    </div>
-                  </div>
-
-                  <div className='sm:col-span-2'>
-                    <label htmlFor='image' className='block text-sm font-semibold leading-6'>
-                    Imagen del producto:
-                    </label>
+                  <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2'>
                     <div>
-                      <input
-                        type='file'
-                        id='image'
-                        name='image'
-                        accept='image/*'
-                        onChange={(e) => setFieldValue('image', e.currentTarget.files?.[0])}
-                        className='block w-full rounded-md border-0 px-3.5 py-2  shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
+                      <label className='block text-sm font-semibold leading-6' htmlFor='title'>
+                        Nombre del Producto:
+                      </label>
+                      <div className='mt-2.5'>
+                        <Field
+                          className='block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder: focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6'
+                          type='text'
+                          id='title'
+                          name='title'
+                        />
+                        <ErrorMessage name='title' component='div' className='text-red-600' />
+                      </div>
                     </div>
-                    <ErrorMessage name='image' component='div' className='text-red-600' />
-                  </div>
-                </div>
 
-                <div className='mt-10'>
-                  <button
-                    type='submit'
-                    className='block w-full rounded-md bg-blue-800 px-3.5 py-2.5 text-center tetx-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-                  >
-                    ¡Publicar Producto!
-                  </button>
-                </div>
-              </Form>
+                    <div>
+                      <label className='block text-sm font-semibold leading-6' htmlFor='price'>
+                        Precio:
+                      </label>
+                      <div className='mt-2.5'>
+                        <Field
+                          type='number'
+                          id='price'
+                          name='price'
+                          placeholder='$'
+                          className='block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder: focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6'
+                        />
+                      </div>
+                      <ErrorMessage name='price' component='div' className='text-red-600' />
+                    </div>
+
+                    <div className='sm:col-span-2'>
+                      <label className='block text-sm font-semibold leading-6' htmlFor='description'>
+                        Descripción:{' '}
+                      </label>
+                      <div className='mt-2.5'>
+                        <Field
+                          type='text'
+                          id='description'
+                          name='description'
+                          className='block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder: focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6'
+                        />
+                      </div>
+                      <ErrorMessage name='description' component='div' className='text-red-600' />
+                    </div>
+
+                    <div className='sm-col-span-2'>
+                      <label className='block text-sm font-semibold leading-6' htmlFor='category'>
+                        Categoría:{' '}
+                      </label>
+                      <div className='mt-2.5'>
+                        <Field
+                          as='select'
+                          id='category'
+                          name='category'
+                          className='block w-full rounded-md border-0 px-3.5 py-2  shadow-sm ring-1 ring-inset ring-gray-300 placeholder: focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6'
+                        >
+                          <option value=''></option>
+                          <option value="women's clothing">women's clothing</option>
+                          <option value="men's clothing">men's clothing</option>
+                        </Field>
+                      </div>
+                    </div>
+
+                    <div className='sm:col-span-2'>
+                      <label htmlFor='image' className='block text-sm font-semibold leading-6'>
+                        Imagen del producto:
+                      </label>
+                      <div>
+                        <input
+                          type='file'
+                          id='image'
+                          name='image'
+                          accept='image/*'
+                          onChange={(e) => setFieldValue('image', e.currentTarget.files?.[0])}
+                          className='block w-full rounded-md border-0 px-3.5 py-2  shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                        />
+                      </div>
+                      <ErrorMessage name='image' component='div' className='text-red-600' />
+                    </div>
+                  </div>
+
+                  <div className='mt-10'>
+                    <button
+                      type='submit'
+                      className='block w-full rounded-md bg-blue-800 px-3.5 py-2.5 text-center tetx-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                    >
+                      ¡Publicar Producto!
+                    </button>
+                  </div>
+                </Form>
 
               </div>
             </div>

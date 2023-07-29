@@ -27,7 +27,7 @@ const ThankYouPage = () => {
   const dispatch = useDispatch();
   const [finalUser, setFinalUser] = useState<any | null>(null);
   const [createMailerOrderMutation, { data }] = useCreateMailerOrderMutation();
-  const [orderCreated, setOrderCreated] = useState(false); 
+  const [orderCreated, setOrderCreated] = useState(false);
   const [ejecutado, setEjecutado] = useState(false);
 
   useEffect(() => {
@@ -54,7 +54,6 @@ const ThankYouPage = () => {
 
   const handleBuyOrder = async () => {
     if (cartItems.length === 0 || !session || !finalUser) {
-      console.log("No hay artículos en el carrito o sesión inválida");
       return;
     }
 
@@ -84,7 +83,6 @@ const ThankYouPage = () => {
         })),
         userId: finalUser._id
       };
-      console.log(buyOrder);
 
       const newBuyOrder = await axios.post('https://copy-pf-la-pilcha-api.vercel.app/api/v1/orders', buyOrder);
 
@@ -94,18 +92,48 @@ const ThankYouPage = () => {
         dispatch(addMailerOrder(data));
         toast.success('Orden de compra creada con éxito');
       }
+
+      const orderDetailsHTML = `<table>
+      <thead>
+        <tr>
+          <th>Titulo:</th>
+          <th>Precio:</th>
+          <th>Cantidad:</th>
+          <th>Total:</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${buyOrder.items
+          .map(
+            (item) => `
+            <tr>
+              <td>${item.title}</td>
+              <td>${item.unit_price}</td>
+              <td>${item.quantity}</td>
+            </tr>
+          `
+          )
+          .join("")}
+          </tbody>
+          <tbody>
+          <th>
+          ${buyOrder.total}
+          </th>
+          </tbody>
+    </table>`;
+
       const newMailerOrder: Partial<MailerOrder> = {
         name: `${buyerInfo.name}`,
         email: `${buyerInfo.email}`,
         subject: `Orden de compra del cliente: ${buyerInfo.name}`,
-        buyOrder: JSON.stringify(buyerInfo.buyOrder),
+        buyOrder: orderDetailsHTML,
       };
-      
+
       const result = await createMailerOrderMutation(newMailerOrder);
-      
+
       if ("data" in result) {
-          const { data } = result;
-          const jsonData = JSON.stringify(data);
+        const { data } = result;
+        const jsonData = JSON.stringify(data);
         dispatch(addMailerOrder(data));
         toast.success("Mensaje de la orden de compra enviado con éxito");
       }
@@ -137,7 +165,7 @@ const ThankYouPage = () => {
   //     setCartItems([]);
   //     dispatch(setCarrito([]));
   //   }, []);              
-  
+
   useEffect(() => {
     if (orderCreated) {
       // Limpiar el carrito de compras (establecerlo como un array vacío) cuando el componente se monta
@@ -146,12 +174,10 @@ const ThankYouPage = () => {
     }
   }, [orderCreated]);
 
-  console.log(orderCreated)
-  
   return (
     <div className="flex flex-col justify-center justify-items-center py-1.5">
       <div className="flex flex-row flex-wrap justify-center justify-items-center mx-2.5">
-        <div       
+        <div
           className="w-1/4"
           style={{ textAlign: "center", margin: "20px 0" }}
         >

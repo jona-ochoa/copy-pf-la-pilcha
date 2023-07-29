@@ -14,7 +14,9 @@ import searchQueryReducer from './features/searchQuerySlice';
 import filterReducer from './features/filterSlice';
 import { nodemailerOrder } from './api/nodemailerOrder';
 import mailerOrderSlice from './features/mailerOrderSlice';
-import buyOrdersReducer from './features/buyOrdersSlice'; 
+import buyOrdersReducer from './features/buyOrdersSlice';
+import { nodemailerRegister } from './api/nodemailerRegister';
+import nodemailerRegisterSlice from './features/nodemailerRegisterSlice';
 
 const reducer = combineReducers({
   [productsApi.reducerPath]: productsApi.reducer,
@@ -22,6 +24,8 @@ const reducer = combineReducers({
   [nodemailerApi.reducerPath]: nodemailerApi.reducer,
   [nodemailerOrder.reducerPath]: nodemailerOrder.reducer,
   [usersApi.reducerPath]: usersApi.reducer,
+  [nodemailerRegister.reducerPath]: nodemailerRegister.reducer,
+  nodemailers: nodemailerRegisterSlice,
   products: productsReducer,
   orders: buyOrdersReducer,
   items: carritoReducer,
@@ -39,6 +43,7 @@ const middleware = getDefaultMiddleware()
   .concat(buyOrderApi.middleware)
   .concat(nodemailerApi.middleware)
   .concat(nodemailerOrder.middleware)
+  .concat(nodemailerRegister.middleware)
   
 export const store = configureStore({
 

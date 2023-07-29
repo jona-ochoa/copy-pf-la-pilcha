@@ -27,7 +27,7 @@ const AdminDashboard: React.FC = () => {
 
   const { data, error, isLoading, isFetching } = useGetUsersQuery();
 
-  
+
 
   useEffect(() => {
     if (data) {
@@ -51,7 +51,6 @@ const AdminDashboard: React.FC = () => {
   const handleToggleBanUser = async (userId: string, isBanned: boolean) => {
     try {
       const response = await axios.put(`https://copy-pf-la-pilcha-api.vercel.app/api/v1/user/${userId}`, { isBanned });
-      console.log(response.data.message);
 
       // Actualizar el estado local con el cambio realizado
       setUsersData((prevUsers) =>
@@ -65,7 +64,6 @@ const AdminDashboard: React.FC = () => {
   const handleToggleDeactivateProduct = async (productId: string, isDeactivated: boolean) => {
     try {
       const response = await axios.put(`https://copy-pf-la-pilcha-api.vercel.app/api/v1/products/${productId}`, { isDeactivated });
-      console.log(response.data.message);
 
       // Actualizar el estado local con el cambio realizado
       setProductsData((prevProducts) =>
@@ -79,7 +77,6 @@ const AdminDashboard: React.FC = () => {
   const handleToggleAdmin = async (userId: string, isAdmin: boolean) => {
     try {
       const response = await axios.put(`https://copy-pf-la-pilcha-api.vercel.app/api/v1/user/${userId}`, { isAdmin });
-      console.log(response.data.message);
 
       // Actualizar el estado local con el cambio realizado
       setUsersData((prevUsers) =>
@@ -105,25 +102,22 @@ const AdminDashboard: React.FC = () => {
         {/* Botones para seleccionar la pestaña */}
         <div className="mb-4 flex justify-center">
           <button
-            className={`mx-2 px-4 py-2 rounded ${
-              selectedTab === 'users' ? 'bg-pink-500 text-white' : 'bg-gray-200 text-gray-800'
-            }`}
+            className={`mx-2 px-4 py-2 rounded ${selectedTab === 'users' ? 'bg-pink-500 text-white' : 'bg-gray-200 text-gray-800'
+              }`}
             onClick={() => setSelectedTab('users')}
           >
             Usuarios
           </button>
           <button
-            className={`mx-2 px-4 py-2 rounded ${
-              selectedTab === 'products' ? 'bg-pink-500 text-white' : 'bg-gray-200 text-gray-800'
-            }`}
+            className={`mx-2 px-4 py-2 rounded ${selectedTab === 'products' ? 'bg-pink-500 text-white' : 'bg-gray-200 text-gray-800'
+              }`}
             onClick={() => setSelectedTab('products')}
           >
             Productos
           </button>
           <button
-            className={`mx-2 px-4 py-2 rounded ${
-              selectedTab === 'orders' ? 'bg-pink-500 text-white' : 'bg-gray-200 text-gray-800'
-            }`}
+            className={`mx-2 px-4 py-2 rounded ${selectedTab === 'orders' ? 'bg-pink-500 text-white' : 'bg-gray-200 text-gray-800'
+              }`}
             onClick={() => setSelectedTab('orders')}
           >
             Ordenes
@@ -133,7 +127,7 @@ const AdminDashboard: React.FC = () => {
 
         {selectedTab === 'users' && (
           <div className="mb-8">
-            
+
             <div className="grid grid-cols-4 gap-4">
               {usersData.map((user: User) => (
                 <div
@@ -202,9 +196,8 @@ const AdminDashboard: React.FC = () => {
                     <p className="text-gray-500">${product.price}</p>
                     <button
                       onClick={() => handleToggleDeactivateProduct(product._id, !product.isDeactivated)}
-                      className={`block mx-auto py-2 px-4 rounded mt-2 ${
-                        product.isDeactivated ? 'bg-green-500 text-white' : 'bg-gray-500 text-white'
-                      }`}
+                      className={`block mx-auto py-2 px-4 rounded mt-2 ${product.isDeactivated ? 'bg-green-500 text-white' : 'bg-gray-500 text-white'
+                        }`}
                     >
                       {product.isDeactivated ? 'Activar' : 'Desactivar'}
                     </button>
@@ -217,7 +210,7 @@ const AdminDashboard: React.FC = () => {
         {selectedTab === 'orders' && (
           <div>
 
-          <BuyOrderList/>
+            <BuyOrderList />
 
           </div>
         )}
