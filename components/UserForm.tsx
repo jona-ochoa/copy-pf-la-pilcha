@@ -69,7 +69,7 @@ const UserForm: React.FC = () => {
           name: `${newUser.name}`,
           lastname: `${newUser.lastname}`,
           email: `${newUser.email}`,
-          subject: `${newUser.name}`,
+          subject: `Nuevo usuario: ${newUser.name}`,
         }
 
         const resultRegister = await createMailerRegisterMutation(newMailerRegister);

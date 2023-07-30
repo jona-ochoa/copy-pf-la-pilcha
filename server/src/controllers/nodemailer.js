@@ -3,10 +3,10 @@ const nodemailer = require("nodemailer");
 const email = process.env.NODE_EMAIL;
 const pass = process.env.NODE_EMAIL_PASS;
 const CONTACT_MESSAGE_FIELDS = {
-    name: "Nombre",
-    email: "Email",
-    subject: "Asunto",
-    message: "Mensaje",
+    name: "Nombre:",
+    email: "Email:",
+    subject: "Asunto:",
+    message: "Mensaje:",
   };
 
   const generetedEmailContent = (data) => {
@@ -143,7 +143,8 @@ const CONTACT_MESSAGE_FIELDS = {
                                   "
                                   class="padding message-content"
                                 >
-                                  <h2>Nuevo mensaje de contacto</h2>
+                                <h1>La Pilcha - Indumentaria</h1>
+                                  <h2>Gracias por ponerte en contanto.</h2>
                                   <div class="form-container">${htmlData}</div>
                                 </td>
                               </tr>

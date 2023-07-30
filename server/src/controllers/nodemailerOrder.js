@@ -3,10 +3,10 @@ const nodemailer = require("nodemailer");
 const email = process.env.NODE_EMAIL;
 const pass = process.env.NODE_EMAIL_PASS;
 const CONTACT_MESSAGE_FIELDS = {
-    name: "Nombre",
-    email: "Email",
-    subject: "Asunto",
-    buyOrder: "Orden de compra",
+    name: "Nombre:",
+    email: "Email:",
+    subject: "Asunto:",
+    buyOrder: "Orden de compra:",
   };
 
   const generetedEmailContent = (data) => {
