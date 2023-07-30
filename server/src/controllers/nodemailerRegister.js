@@ -143,9 +143,8 @@ const CONTACT_MESSAGE_FIELDS = {
                                   "
                                   class="padding message-content"
                                 >
-                                  <h2>Bienvenido a La Pilcha!!!</h2>
-                                  <h3>Tienda en linea de indumentaria.</h3>
-                                  <h2>Nuevo usuario registrado</h2>
+                                  <h2>Bienvenido a La Pilcha - Indumentaria</h2>
+                                  <h3>Tienda en linea de indumentaria para damas y caballeros.</h3>
                                   <div class="form-container">${htmlData}</div>
                                 </td>
                               </tr>

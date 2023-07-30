@@ -143,7 +143,7 @@ const CONTACT_MESSAGE_FIELDS = {
                                   "
                                   class="padding message-content"
                                 >
-                                  <h2>New Contact Message</h2>
+                                  <h2>Nuevo mensaje de contacto</h2>
                                   <div class="form-container">${htmlData}</div>
                                 </td>
                               </tr>

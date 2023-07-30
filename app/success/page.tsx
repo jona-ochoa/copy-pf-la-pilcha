@@ -93,34 +93,20 @@ const ThankYouPage = () => {
         toast.success('Orden de compra creada con éxito');
       }
 
-      const orderDetailsHTML = `<table>
-      <thead>
-        <tr>
-          <th>Titulo:</th>
-          <th>Precio:</th>
-          <th>Cantidad:</th>
-          <th>Total:</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${buyOrder.items
-          .map(
-            (item) => `
-            <tr>
-              <td>${item.title}</td>
-              <td>${item.unit_price}</td>
-              <td>${item.quantity}</td>
-            </tr>
-          `
-          )
-          .join("")}
-          </tbody>
-          <tbody>
-          <th>
-          ${buyOrder.total}
-          </th>
-          </tbody>
-    </table>`;
+      const orderDetailsHTML = `
+  <div>
+  ${buyOrder.items.map(
+    (item) => `
+      <div>
+        <div>Titulo: ${item.title}</div>
+        <div>Precio: ${item.unit_price}</div>
+        <div>Cantidad: ${item.quantity}</div>
+      </div>
+    `
+  ).join("")}
+    <div>Total: ${buyOrder.total}</div>
+  </div>
+`;
 
       const newMailerOrder: Partial<MailerOrder> = {
         name: `${buyerInfo.name}`,
