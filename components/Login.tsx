@@ -81,6 +81,9 @@ const Login = () => {
           <label className="block text-gray-400 text-sm font-bold mb-2" htmlFor="password">
             Password
           </label>
+          <div className='text-xs'>
+            <a href='/forgotPassword' className='font- text-gray-300 hover:text-blue-200'> ¿Olvidaste la contraseña? </a>
+          </div>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
             id="password"
@@ -91,6 +94,7 @@ const Login = () => {
             onChange={(e) => handleChange(e)}
             required
           />
+
         </div>
         <div className="flex items-center justify-between">
           <button
@@ -100,7 +104,7 @@ const Login = () => {
             {loading ? 'Ingresando...' : 'Ingresar'}
           </button>
           <p className="text-sm text-white">
-            Soy nuevo, {''} <a href="/userForm" className="text-blue-500">Registrarse</a>
+            Soy nuevo, {''} <a href="/userForm" className="text-blue-500 hover:text-blue-200">Registrarse</a>
           </p>
         </div>
         <div className="mt-4 text-center">
@@ -116,16 +120,6 @@ const Login = () => {
                 Google
               </div>
             </button>
-            {/* <button
-                className="bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline ml-2"
-                type="button"
-                onClick={() => handleLogin('github')}
-              >
-                <div className="flex items-center">
-                  <Image src={githubLogo} alt="GitHub Logo" width={16} height={16} className="mr-2" />
-                  GitHub
-                </div>
-              </button> */}
           </div>
         </div>
       </form>
