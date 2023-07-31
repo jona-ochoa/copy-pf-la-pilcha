@@ -1,10 +1,11 @@
+"use client"
 import React from "react";
 import ResetPassword from "../../components/ResetPassword"
 
-const ResetPasswordPage = ({token}) => {
+const ResetPasswordPage = ({token, id}) => {
     return (
         <div>
-            <ResetPassword token={token}/>
+            <ResetPassword token={token} id={id} />
         </div>
     )
 }
