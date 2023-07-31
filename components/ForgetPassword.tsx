@@ -10,7 +10,7 @@ const ForgetPassword = () => {
         e.preventDefault();
         try {
             console.log("a ve si funciona", email);
-            const response = await axios.post(`http://localhost:3002/nodemailer/forgot-password`, { email: email });
+            const response = await axios.post(`https://copy-pf-la-pilcha-api.vercel.app/nodemailer/forgot-password`, { email: email });
             const data = response.data;
             console.log("esta es la data despues del post", data);
             if (data && data.message) {

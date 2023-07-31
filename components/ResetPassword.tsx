@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
-const ResetPassword = ({ token }) => {
+const ResetPassword = ({ token, id }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -21,7 +21,7 @@ const ResetPassword = ({ token }) => {
             return;
         }
         try {
-            const response = await axios.post(`http://localhost:3002/reset-password`, { token, password })
+            const response = await axios.put(`https://copy-pf-la-pilcha-api.vercel.app/user/${id}`, { token, password })
             const data = response.data;
             if (data.message) {
                 toast.success(data.message);

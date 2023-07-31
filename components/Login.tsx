@@ -1,7 +1,6 @@
 'use client'
 import Image from 'next/image';
 import googleLogo from '../public/google-logo.png';
-import githubLogo from '../public/github-logo.png';
 import { signIn } from "next-auth/react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { ChangeEvent, useState } from "react";
