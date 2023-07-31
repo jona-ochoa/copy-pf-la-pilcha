@@ -1,14 +1,14 @@
-"use client"
+// "use client"
 
-import React from "react";
-import ForgetPassword from "components/ForgetPassword";
+// import React from "react";
+// import ForgetPassword from "components/ForgetPassword";
 
-const ForgetPasswordPage = () => {
-    return (
-        <div>
-            <ForgetPassword />            
-        </div>
-    )
-}
+// const ForgetPasswordPage = () => {
+//     return (
+//         <div>
+//             <ForgetPassword />            
+//         </div>
+//     )
+// }
 
-export default ForgetPasswordPage;
+// export default ForgetPasswordPage;
