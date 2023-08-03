@@ -81,7 +81,7 @@ const Login = () => {
             Password
           </label>
           <div className='text-xs'>
-            <a href='/forgotPassword' className='font- text-gray-300 hover:text-blue-200'> ¿Olvidaste la contraseña? </a>
+            <a href='/' className='font- text-gray-300 hover:text-blue-200'> ¿Olvidaste la contraseña? </a>
           </div>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
