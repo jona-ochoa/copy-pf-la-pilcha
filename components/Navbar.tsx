@@ -85,7 +85,7 @@ const Navbar: React.FC = () => {
   return (
     <nav>
       <div className="bg-gray-900 text-white mx-auto px-5 xl:px-12 py-6 flex items-center">
-        <a href="/">
+        <a href="/products">
           <div className="text-2xl font-semibold mr-4 tracking-widest">
             La<span className="text-3xl font-bold tracking-widest">P</span>ilcha
           </div>
