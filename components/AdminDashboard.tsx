@@ -149,7 +149,8 @@ const AdminDashboard: React.FC = () => {
                     <p className="font-semibold">Email:</p>
                     <p>{user.email}</p>
                     <p className="font-semibold">Password:</p>
-                    <p>{user.password}</p>
+                    {/* <p>{user.password}</p> */}
+                    <p>********</p>
                     <div className="relative mt-2">
                       <p className="font-semibold">Admin:</p>
                       <div className="flex items-center justify-center">
