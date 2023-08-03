@@ -6,6 +6,7 @@ import { removeFromCarrito, setCarrito } from "../GlobalRedux/features/carritoSl
 import { Product } from "../GlobalRedux/api/productsApi";
 import { useLocalStorage } from "hooks/useLocalstorage";
 import { useSession } from "next-auth/react";
+import toast from 'react-hot-toast';
 import axios from "axios";
 
 interface Item extends Product {
@@ -18,11 +19,11 @@ interface IMailerOrder {
   subject: string;
   buyOrder:
   | Array<{
-      id: string;
-      title: string;
-      unit_price: string;
-      quantity: number;
-    }>
+    id: string;
+    title: string;
+    unit_price: string;
+    quantity: number;
+  }>
   | string;
 }
 
@@ -32,6 +33,7 @@ const CarritoDeCompras = () => {
   const [total, setTotal] = useState<number>(0);
   const dispatch = useDispatch();
   const [finalUser, setFinalUser] = useState<any | null>(null);
+  const MAX_PRODUCT_COUNT = 5;
   let email = session?.user?.email ?? "";
 
   const searchBuyHistory = useCallback(
@@ -61,6 +63,7 @@ const CarritoDeCompras = () => {
     const updatedItems = cartItems.filter((item) => item._id !== _id);
     setCartItems(updatedItems);
     dispatch(removeFromCarrito(_id));
+    toast.error('Producto eliminado del carrito');
   };
 
   useEffect(() => {
@@ -75,8 +78,13 @@ const CarritoDeCompras = () => {
     const updatedItems = cartItems.map((item: Item) =>
       item._id === _id ? { ...item, count: item.count + 1 } : item
     );
-    setCartItems(updatedItems);
-    dispatch(setCarrito(updatedItems));
+
+    const updatedItemsWithLimit = updatedItems.map((item: Item) =>
+      item.count > MAX_PRODUCT_COUNT ? { ...item, count: MAX_PRODUCT_COUNT } : item
+    );
+
+    setCartItems(updatedItemsWithLimit);
+    dispatch(setCarrito(updatedItemsWithLimit));
   };
 
   const handleDecreaseCount = (_id: string) => {
