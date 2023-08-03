@@ -52,7 +52,7 @@ const Login = () => {
   };
 
   const handleLogin = (provider: string) => {
-    signIn(provider, { callbackUrl: '/' });
+    signIn(provider, { callbackUrl: '/products' });
   };
 
   return (
