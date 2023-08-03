@@ -145,7 +145,7 @@ const CarritoDeCompras = () => {
             <p className=" italic">
               No has agregado prendas al carrito
             </p>
-            <a href="/" className="mt-4 text-blue-500 hover:underline">
+            <a href="/products" className="mt-4 text-blue-500 hover:underline">
               Volver a comprar
             </a>
           </div>
@@ -211,9 +211,9 @@ const CarritoDeCompras = () => {
               <p className="text-lg font-bold text-gray-700">Total:</p>
               <div>
                 <p className="mb-1 text-lg font-bold text-gray-700">
-                  ${(total + 4.99).toFixed(2)} ARS
+                  ${(total).toFixed(2)} ARS
                 </p>
-                <p className="text-sm text-gray-700">*** incluye IVA</p>
+                {/* <p className="text-sm text-gray-700">*** IVA ***</p> */}
               </div>
             </div>
             <button
